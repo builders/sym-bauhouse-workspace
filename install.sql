@@ -39,17 +39,16 @@ CREATE TABLE `tbl_fields_date` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `field_id` int(11) unsigned NOT NULL,
   `pre_populate` enum('yes','no') COLLATE utf8_unicode_ci NOT NULL DEFAULT 'no',
-  `calendar` enum('yes','no') COLLATE utf8_unicode_ci NOT NULL DEFAULT 'no',
   PRIMARY KEY (`id`),
   KEY `field_id` (`field_id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=47 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
 
 -- *** DATA: `tbl_fields_date` ***
-INSERT INTO `tbl_fields_date` (`id`, `field_id`, `pre_populate`, `calendar`) VALUES (46, 20, 'yes', 'no');
-INSERT INTO `tbl_fields_date` (`id`, `field_id`, `pre_populate`, `calendar`) VALUES (42, 29, 'yes', 'no');
-INSERT INTO `tbl_fields_date` (`id`, `field_id`, `pre_populate`, `calendar`) VALUES (8, 45, 'yes', 'no');
-INSERT INTO `tbl_fields_date` (`id`, `field_id`, `pre_populate`, `calendar`) VALUES (9, 54, 'yes', 'no');
-INSERT INTO `tbl_fields_date` (`id`, `field_id`, `pre_populate`, `calendar`) VALUES (17, 65, 'yes', 'no');
+INSERT INTO `tbl_fields_date` (`id`, `field_id`, `pre_populate`) VALUES (46, 20, 'yes');
+INSERT INTO `tbl_fields_date` (`id`, `field_id`, `pre_populate`) VALUES (42, 29, 'yes');
+INSERT INTO `tbl_fields_date` (`id`, `field_id`, `pre_populate`) VALUES (8, 45, 'yes');
+INSERT INTO `tbl_fields_date` (`id`, `field_id`, `pre_populate`) VALUES (9, 54, 'yes');
+INSERT INTO `tbl_fields_date` (`id`, `field_id`, `pre_populate`) VALUES (17, 65, 'yes');
 
 -- *** STRUCTURE: `tbl_fields_enhancedtaglist` ***
 DROP TABLE IF EXISTS `tbl_fields_enhancedtaglist`;
@@ -76,7 +75,7 @@ DROP TABLE IF EXISTS `tbl_fields_input`;
 CREATE TABLE `tbl_fields_input` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `field_id` int(11) unsigned NOT NULL,
-  `validator` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `validator` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `field_id` (`field_id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=222 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -225,7 +224,7 @@ DROP TABLE IF EXISTS `tbl_fields_taglist`;
 CREATE TABLE `tbl_fields_taglist` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `field_id` int(11) unsigned NOT NULL,
-  `validator` varchar(100) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `validator` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   `pre_populate_source` varchar(15) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `field_id` (`field_id`),
@@ -271,7 +270,7 @@ CREATE TABLE `tbl_fields_upload` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `field_id` int(11) unsigned NOT NULL,
   `destination` varchar(255) COLLATE utf8_unicode_ci NOT NULL,
-  `validator` varchar(50) COLLATE utf8_unicode_ci DEFAULT NULL,
+  `validator` varchar(255) COLLATE utf8_unicode_ci DEFAULT NULL,
   PRIMARY KEY (`id`),
   KEY `field_id` (`field_id`)
 ) ENGINE=MyISAM AUTO_INCREMENT=73 DEFAULT CHARSET=utf8 COLLATE=utf8_unicode_ci;
@@ -1336,7 +1335,7 @@ CREATE TABLE `tbl_entries_data_35` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `entry_id` int(11) unsigned NOT NULL,
   `file` varchar(255) DEFAULT NULL,
-  `size` int(11) unsigned NOT NULL,
+  `size` int(11) unsigned DEFAULT NULL,
   `mimetype` varchar(50) DEFAULT NULL,
   `meta` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`),
@@ -1353,7 +1352,7 @@ CREATE TABLE `tbl_entries_data_36` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `entry_id` int(11) unsigned NOT NULL,
   `file` varchar(255) DEFAULT NULL,
-  `size` int(11) unsigned NOT NULL,
+  `size` int(11) unsigned DEFAULT NULL,
   `mimetype` varchar(50) DEFAULT NULL,
   `meta` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`),
@@ -1800,7 +1799,7 @@ CREATE TABLE `tbl_entries_data_58` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `entry_id` int(11) unsigned NOT NULL,
   `file` varchar(255) DEFAULT NULL,
-  `size` int(11) unsigned NOT NULL,
+  `size` int(11) unsigned DEFAULT NULL,
   `mimetype` varchar(50) DEFAULT NULL,
   `meta` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`),
@@ -2134,7 +2133,7 @@ CREATE TABLE `tbl_entries_data_62` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `entry_id` int(11) unsigned NOT NULL,
   `file` varchar(255) DEFAULT NULL,
-  `size` int(11) unsigned NOT NULL,
+  `size` int(11) unsigned DEFAULT NULL,
   `mimetype` varchar(50) DEFAULT NULL,
   `meta` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`),
@@ -2501,7 +2500,7 @@ CREATE TABLE `tbl_entries_data_79` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `entry_id` int(11) unsigned NOT NULL,
   `file` varchar(255) DEFAULT NULL,
-  `size` int(11) unsigned NOT NULL,
+  `size` int(11) unsigned DEFAULT NULL,
   `mimetype` varchar(50) DEFAULT NULL,
   `meta` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`),
@@ -2551,7 +2550,7 @@ CREATE TABLE `tbl_entries_data_80` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `entry_id` int(11) unsigned NOT NULL,
   `file` varchar(255) DEFAULT NULL,
-  `size` int(11) unsigned NOT NULL,
+  `size` int(11) unsigned DEFAULT NULL,
   `mimetype` varchar(50) DEFAULT NULL,
   `meta` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`),
@@ -2568,7 +2567,7 @@ CREATE TABLE `tbl_entries_data_81` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `entry_id` int(11) unsigned NOT NULL,
   `file` varchar(255) DEFAULT NULL,
-  `size` int(11) unsigned NOT NULL,
+  `size` int(11) unsigned DEFAULT NULL,
   `mimetype` varchar(50) DEFAULT NULL,
   `meta` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`),
@@ -2585,7 +2584,7 @@ CREATE TABLE `tbl_entries_data_82` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `entry_id` int(11) unsigned NOT NULL,
   `file` varchar(255) DEFAULT NULL,
-  `size` int(11) unsigned NOT NULL,
+  `size` int(11) unsigned DEFAULT NULL,
   `mimetype` varchar(50) DEFAULT NULL,
   `meta` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`),
@@ -2602,7 +2601,7 @@ CREATE TABLE `tbl_entries_data_83` (
   `id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `entry_id` int(11) unsigned NOT NULL,
   `file` varchar(255) DEFAULT NULL,
-  `size` int(11) unsigned NOT NULL,
+  `size` int(11) unsigned DEFAULT NULL,
   `mimetype` varchar(50) DEFAULT NULL,
   `meta` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`),
@@ -2898,12 +2897,12 @@ INSERT INTO `tbl_extensions` (`id`, `name`, `status`, `version`) VALUES (8, 'pag
 INSERT INTO `tbl_extensions` (`id`, `name`, `status`, `version`) VALUES (53, 'referencelink', 'enabled', '1.3.2');
 INSERT INTO `tbl_extensions` (`id`, `name`, `status`, `version`) VALUES (38, 'reflectionfield', 'enabled', '1.0.8');
 INSERT INTO `tbl_extensions` (`id`, `name`, `status`, `version`) VALUES (39, 'selectbox_link_field', 'enabled', 1.18);
-INSERT INTO `tbl_extensions` (`id`, `name`, `status`, `version`) VALUES (36, 'debugdevkit', 'enabled', '1.0.5');
+INSERT INTO `tbl_extensions` (`id`, `name`, `status`, `version`) VALUES (60, 'debugdevkit', 'enabled', '1.0.8');
 INSERT INTO `tbl_extensions` (`id`, `name`, `status`, `version`) VALUES (58, 'jit_image_manipulation', 'enabled', 1.08);
 INSERT INTO `tbl_extensions` (`id`, `name`, `status`, `version`) VALUES (42, 'maintenance_mode', 'enabled', 1.2);
-INSERT INTO `tbl_extensions` (`id`, `name`, `status`, `version`) VALUES (59, 'markdown', 'enabled', 1.10);
+INSERT INTO `tbl_extensions` (`id`, `name`, `status`, `version`) VALUES (62, 'markdown', 'enabled', 1.11);
 INSERT INTO `tbl_extensions` (`id`, `name`, `status`, `version`) VALUES (44, 'order_entries', 'enabled', 1.8);
-INSERT INTO `tbl_extensions` (`id`, `name`, `status`, `version`) VALUES (45, 'profiledevkit', 'enabled', '1.0.1');
+INSERT INTO `tbl_extensions` (`id`, `name`, `status`, `version`) VALUES (61, 'profiledevkit', 'enabled', '1.0.4');
 INSERT INTO `tbl_extensions` (`id`, `name`, `status`, `version`) VALUES (41, 'logsdevkit', 'enabled', '1.0.2');
 INSERT INTO `tbl_extensions` (`id`, `name`, `status`, `version`) VALUES (57, 'export_install_file', 'disabled', 1.1);
 INSERT INTO `tbl_extensions` (`id`, `name`, `status`, `version`) VALUES (34, 'browsedevkit', 'enabled', '1.0.1');
@@ -2911,7 +2910,7 @@ INSERT INTO `tbl_extensions` (`id`, `name`, `status`, `version`) VALUES (56, 'pu
 
 -- *** DATA: `tbl_extensions_delegates` ***
 INSERT INTO `tbl_extensions_delegates` (`id`, `extension_id`, `page`, `delegate`, `callback`) VALUES (46, 35, '/frontend/', 'FrontendPreRenderHeaders', 'setContentType');
-INSERT INTO `tbl_extensions_delegates` (`id`, `extension_id`, `page`, `delegate`, `callback`) VALUES (47, 36, '/frontend/', 'FrontendDevKitResolve', 'frontendDevKitResolve');
+INSERT INTO `tbl_extensions_delegates` (`id`, `extension_id`, `page`, `delegate`, `callback`) VALUES (81, 60, '/frontend/', 'ManipulateDevKitNavigation', 'manipulateDevKitNavigation');
 INSERT INTO `tbl_extensions_delegates` (`id`, `extension_id`, `page`, `delegate`, `callback`) VALUES (74, 53, '/backend/', 'InitaliseAdminPageHead', 'initializeAdmin');
 INSERT INTO `tbl_extensions_delegates` (`id`, `extension_id`, `page`, `delegate`, `callback`) VALUES (52, 38, '/frontend/', 'EventPostSaveFilter', 'compileFrontendFields');
 INSERT INTO `tbl_extensions_delegates` (`id`, `extension_id`, `page`, `delegate`, `callback`) VALUES (51, 38, '/publish/edit/', 'EntryPostEdit', 'compileBackendFields');
@@ -2924,10 +2923,10 @@ INSERT INTO `tbl_extensions_delegates` (`id`, `extension_id`, `page`, `delegate`
 INSERT INTO `tbl_extensions_delegates` (`id`, `extension_id`, `page`, `delegate`, `callback`) VALUES (57, 42, '/system/preferences/', 'AddCustomPreferenceFieldsets', 'appendPreferences');
 INSERT INTO `tbl_extensions_delegates` (`id`, `extension_id`, `page`, `delegate`, `callback`) VALUES (64, 44, '/backend/', 'AppendElementBelowView', 'appendOrderFieldId');
 INSERT INTO `tbl_extensions_delegates` (`id`, `extension_id`, `page`, `delegate`, `callback`) VALUES (63, 44, '/backend/', 'InitaliseAdminPageHead', 'appendScriptToHead');
-INSERT INTO `tbl_extensions_delegates` (`id`, `extension_id`, `page`, `delegate`, `callback`) VALUES (66, 45, '/frontend/', 'ManipulateDevKitNavigation', 'manipulateDevKitNavigation');
-INSERT INTO `tbl_extensions_delegates` (`id`, `extension_id`, `page`, `delegate`, `callback`) VALUES (65, 45, '/frontend/', 'FrontendDevKitResolve', 'frontendDevKitResolve');
+INSERT INTO `tbl_extensions_delegates` (`id`, `extension_id`, `page`, `delegate`, `callback`) VALUES (83, 61, '/frontend/', 'ManipulateDevKitNavigation', 'manipulateDevKitNavigation');
+INSERT INTO `tbl_extensions_delegates` (`id`, `extension_id`, `page`, `delegate`, `callback`) VALUES (82, 61, '/frontend/', 'FrontendDevKitResolve', 'frontendDevKitResolve');
 INSERT INTO `tbl_extensions_delegates` (`id`, `extension_id`, `page`, `delegate`, `callback`) VALUES (45, 34, '/frontend/', 'ManipulateDevKitNavigation', 'manipulateDevKitNavigation');
-INSERT INTO `tbl_extensions_delegates` (`id`, `extension_id`, `page`, `delegate`, `callback`) VALUES (48, 36, '/frontend/', 'ManipulateDevKitNavigation', 'manipulateDevKitNavigation');
+INSERT INTO `tbl_extensions_delegates` (`id`, `extension_id`, `page`, `delegate`, `callback`) VALUES (80, 60, '/frontend/', 'FrontendDevKitResolve', 'frontendDevKitResolve');
 INSERT INTO `tbl_extensions_delegates` (`id`, `extension_id`, `page`, `delegate`, `callback`) VALUES (56, 41, '/frontend/', 'ManipulateDevKitNavigation', 'manipulateDevKitNavigation');
 INSERT INTO `tbl_extensions_delegates` (`id`, `extension_id`, `page`, `delegate`, `callback`) VALUES (55, 41, '/frontend/', 'FrontendDevKitResolve', 'frontendDevKitResolve');
 INSERT INTO `tbl_extensions_delegates` (`id`, `extension_id`, `page`, `delegate`, `callback`) VALUES (44, 34, '/frontend/', 'FrontendDevKitResolve', 'frontendDevKitResolve');
